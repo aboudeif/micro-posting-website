@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Micro-Posting</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container dashboard-container">
+        <nav class="nav">
+            <h1 style="color: var(--primary-color); margin:0;">Micro-Posting</h1>
+            <div style="display: flex; gap: 20px; align-items: center;">
+                <span id="userName" style="font-weight: 500;"></span>
+                <a href="#" id="logoutBtn">Logout</a>
+            </div>
+        </nav>
+
+        <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 20px;">
+            <!-- Users List -->
+            <div class="card">
+                <h2>Users</h2>
+                <div id="usersList" style="display: flex; flex-direction: column; gap: 10px;">
+                    Loading users...
+                </div>
+            </div>
+
+            <!-- Posts Area -->
+            <div>
+                <!-- Create Post -->
+                <div class="card" style="margin-bottom: 20px;" id="createPostContainer">
+                    <h2 style="font-size: 1.25rem;">Create Post</h2>
+                    <form id="createPostForm">
+                        <textarea id="postContent" rows="3" placeholder="What's on your mind?" required></textarea>
+                        <button type="submit" style="margin-top: 10px; width: auto;">Post</button>
+                    </form>
+                </div>
+
+                <!-- Posts List -->
+                <div class="card">
+                    <h2 id="postsTitle">My Posts</h2>
+                    <div id="postsList">
+                        Loading posts...
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div id="deleteModal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h3>Confirm Deletion</h3>
+            <p>Are you sure you want to delete this post?</p>
+            <div class="modal-actions">
+                <button id="cancelDeleteBtn" class="btn-secondary" style="width: auto; padding: 0.5rem 1.5rem;">Cancel</button>
+                <button id="confirmDeleteBtn" class="btn-danger" style="width: auto; padding: 0.5rem 1.5rem;">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div id="deleteModal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h3>Confirm Deletion</h3>
+            <p>Are you sure you want to delete this post?</p>
+            <div class="modal-actions">
+                <button id="cancelDeleteBtn" class="btn-secondary" style="width: auto; padding: 0.5rem 1.5rem;">Cancel</button>
+                <button id="confirmDeleteBtn" class="btn-danger" style="width: auto; padding: 0.5rem 1.5rem;">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/api.service.js"></script>
+    <script src="js/validators.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

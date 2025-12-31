@@ -1,0 +1,8 @@
+const path = require('path');
+
+module.exports = {
+  'config': path.resolve('database', 'config.js'),
+  'models-path': path.resolve('src', 'models'), // Note: we have models split in modules, but CLI usually needs one folder. For type-orm/sequelize-typescript we often rely on code, but for migrations we need config.
+  'seeders-path': path.resolve('database', 'seeders'),
+  'migrations-path': path.resolve('database', 'migrations')
+};

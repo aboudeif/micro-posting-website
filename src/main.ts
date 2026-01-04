@@ -8,8 +8,14 @@ async function bootstrap() {
 
   // Enable CORS for frontend communication
   app.enableCors({
-    origin: process.env.FRONTEND_URL || 'http://localhost:3001',
+    origin: [
+      'http://localhost:3001',
+      'http://127.0.0.1:3001',
+      process.env.FRONTEND_URL,
+    ].filter(Boolean) as string[],
     credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization', 'Accept'],
   });
 
   app.useGlobalPipes(new ValidationPipe({ transform: true, whitelist: true }));
